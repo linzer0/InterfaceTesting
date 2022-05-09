@@ -11,7 +11,6 @@ namespace Editor
     {
         private static List<TestReport> _testReports;
         private GUIStyle _failedGUIStyle;
-        private List<string> _rowNames = new List<string>() {"Test Name", "Description", "Test Status", "Report"};
 
         [InitializeOnLoadMethod]
         static void Init()

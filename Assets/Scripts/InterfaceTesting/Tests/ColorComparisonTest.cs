@@ -2,9 +2,6 @@
 
 namespace Assets.Scripts.InterfaceTesting.Tests
 {
-    //TODO it's maybe have sense create 
-    // ImageTest
-    // Where we have protected Image reference
     public class ColorComparisonTest : ImageTest
     {
         [SerializeField] private Color _expectedImageColor;

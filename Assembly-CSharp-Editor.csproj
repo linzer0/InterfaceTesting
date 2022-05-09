@@ -52,7 +52,6 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\Editor\MCHEditorWindow.cs" />
      <Compile Include="Assets\Scripts\Editor\ReportEditor.cs" />
      <Compile Include="Assets\Scripts\Editor\NewEditor.cs" />
      <Compile Include="Assets\Scripts\Editor\PopupWindow.cs" />

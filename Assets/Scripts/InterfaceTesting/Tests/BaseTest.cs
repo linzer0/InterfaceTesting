@@ -36,7 +36,7 @@ namespace InterfaceTesting.Tests
 
         public virtual string GetDescription()
         {
-            return "No description";
+            return "Need fill in test description";
         }
     }
 }
