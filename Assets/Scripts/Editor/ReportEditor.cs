@@ -30,21 +30,6 @@ namespace Editor
             Debug.Log($"Tests updated\nSize is {baseTest.Count}");
         }
 
-        [MenuItem(itemName: "Tools/Tests")]
-        public static NewEditor Open()
-        {
-            NewEditor commentsNotebookEditorWindow = GetWindow<NewEditor>(
-                title: "Editor Window",
-                focus: true
-            );
-
-            commentsNotebookEditorWindow.minSize = new Vector2(x: 450.0f, y: 100.0f);
-
-            commentsNotebookEditorWindow.Show();
-
-            return commentsNotebookEditorWindow;
-        }
-
         private MultiColumnHeaderState _multiColumnHeaderState;
         private MultiColumnHeader _multiColumnHeader;
 
@@ -149,6 +134,11 @@ namespace Editor
 
             // For each element that we have in object that we are modifying.
             //? I don't have an appropriate object here to modify, but this is just an example. In real world case I would probably use ScriptableObject here.
+            if (_testReports == null)
+            {
+                return;
+            }
+
             for (int i = 0; i < _testReports.Count; i++)
             {
                 //! We draw each type of field here separately because each column could require a different type of field as seen here.
@@ -219,8 +209,9 @@ namespace Editor
                     Rect columnRect = this._multiColumnHeader.GetColumnRect(visibleColumnIndex: visibleColumnIndex);
 
                     columnRect.y = rowRect.y;
-                    
-                    if(GUI.Button(_multiColumnHeader.GetCellRect(visibleColumnIndex: visibleColumnIndex, columnRect), _testReports[i].GetTestStatus()))
+
+                    if (GUI.Button(_multiColumnHeader.GetCellRect(visibleColumnIndex: visibleColumnIndex, columnRect),
+                        _testReports[i].GetTestStatus()))
                     {
                         ShowTest(_testReports[i]);
                     }
