@@ -35,10 +35,8 @@ namespace Editor
 
         private MultiColumnHeaderState.Column[] _columns;
 
-        // Create a few test subjects.
         private void Initialize()
         {
-            // We can move these columns into some ScriptableObject or some other data saving object/file to save their properties there, otherwise because of some events these settings will be recreated and state of the window won't be saved as expected.
             this._columns = new MultiColumnHeaderState.Column[]
             {
                 new MultiColumnHeaderState.Column()
