@@ -21,5 +21,14 @@ namespace Assets.Scripts.InterfaceTesting.Tests
             }
         }
 
+        public string GetExpectedState()
+        {
+            return _expectedState ? "Active" : "Inactive";
+        }
+
+        public override string GetDescription()
+        {
+            return $"Target object is {_targetElement.name} and Expected state is {GetExpectedState()}";
+        }
     }
 }

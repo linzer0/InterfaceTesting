@@ -27,5 +27,10 @@ namespace Assets.Scripts.InterfaceTesting.Tests
         {
             return first.Equals(second);
         }
+
+        public override string GetDescription()
+        {
+            return $"Target object is {_targetImage.name} Expected sprite is {_expectedSprite.name}";
+        }
     }
 }

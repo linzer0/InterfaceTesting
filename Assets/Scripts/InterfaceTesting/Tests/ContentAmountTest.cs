@@ -29,5 +29,10 @@ namespace Assets.Scripts.InterfaceTesting.Tests
                 $"{_targetContentHolder.name} child amount {_transformChildAmount}" +
                 $"\nExpected {_expectedContentAmount}";
         }
+
+        public override string GetDescription()
+        {
+            return $"Target object is {_targetContentHolder.name} Expected child amount is {_expectedContentAmount}";
+        }
     }
 }

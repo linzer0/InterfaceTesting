@@ -23,5 +23,11 @@ namespace Assets.Scripts.InterfaceTesting.Tests
             return
                 $"{_targetImage.name} have {_targetImage.color.ToString()}\nExpected {_expectedImageColor.ToString()}";
         }
+
+        public override string GetDescription()
+        {
+            return
+                $"Target object is {_targetImage.gameObject.name} and Target color is {_expectedImageColor.ToString()}";
+        }
     }
 }

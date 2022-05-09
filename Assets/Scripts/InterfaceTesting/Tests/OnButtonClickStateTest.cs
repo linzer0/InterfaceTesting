@@ -10,7 +10,7 @@ namespace InterfaceTesting.Tests
         [SerializeField] private TestableButton _testableButton;
 
         private bool _targetStartState;
-        
+
         public override void RunTest()
         {
             _targetStartState = _targetElement.activeSelf;
@@ -27,6 +27,11 @@ namespace InterfaceTesting.Tests
             }
 
             _targetElement.SetActive(_targetStartState);
+        }
+
+        public override string GetDescription()
+        {
+            return $"Target object is {_targetElement.gameObject.name} and Target state is {GetExpectedState()}";
         }
     }
 }

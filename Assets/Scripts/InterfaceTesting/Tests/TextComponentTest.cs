@@ -25,5 +25,10 @@ namespace Assets.Scripts.InterfaceTesting.Tests
         {
             return $"{_textComponent.name} have {_textComponent.text}\nExpected {_expectedValue}";
         }
+
+        public override string GetDescription()
+        {
+            return $"Target object is {_textComponent.name} and Expected value is {_expectedValue}";
+        }
     }
 }
