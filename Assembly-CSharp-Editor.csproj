@@ -52,7 +52,10 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Editor\MCHEditorWindow.cs" />
      <Compile Include="Assets\Scripts\Editor\ReportEditor.cs" />
+     <Compile Include="Assets\Scripts\Editor\NewEditor.cs" />
+     <Compile Include="Assets\Scripts\Editor\PopupWindow.cs" />
  <Reference Include="UnityEngine">
  <HintPath>F:/Programs/Unity/2020.3.24f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
  </Reference>

@@ -20,5 +20,6 @@ namespace Assets.Scripts.InterfaceTesting.Tests
                     $"{_targetElement.name} state is {_targetElement.activeSelf} expected {_expectedState}");
             }
         }
+
     }
 }
