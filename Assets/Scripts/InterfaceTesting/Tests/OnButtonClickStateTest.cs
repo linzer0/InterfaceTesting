@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 ﻿using UnityEngine;
+=======
+﻿using Assets.Scripts.InterfaceTesting.Tests;
+using InterfaceTesting.TestableElements;
+using UnityEngine;
+>>>>>>> 92c50e979e2243e1fa6d05930c3a282692178337
 
 namespace InterfaceTesting
 {
