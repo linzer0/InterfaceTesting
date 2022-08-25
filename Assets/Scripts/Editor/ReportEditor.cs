@@ -84,11 +84,7 @@ namespace Editor
 
         private void OnGUI()
         {
-<<<<<<< HEAD
             if (_multiColumnHeader == null)
-=======
-            if (this._multiColumnHeader == null)
->>>>>>> 92c50e979e2243e1fa6d05930c3a282692178337
             {
                 Initialize();
             }
@@ -97,13 +93,8 @@ namespace Editor
 
             Rect windowRect = GUILayoutUtility.GetLastRect();
 
-<<<<<<< HEAD
             windowRect.width = position.width;
             windowRect.height = position.height;
-=======
-            windowRect.width = this.position.width;
-            windowRect.height = this.position.height;
->>>>>>> 92c50e979e2243e1fa6d05930c3a282692178337
 
             float columnHeight = EditorGUIUtility.singleLineHeight;
 
@@ -116,11 +107,7 @@ namespace Editor
 
             Rect viewRect = new Rect(source: windowRect)
             {
-<<<<<<< HEAD
                 xMax = _columns.Sum((column) =>
-=======
-                xMax = this._columns.Sum((column) =>
->>>>>>> 92c50e979e2243e1fa6d05930c3a282692178337
                     column.width)
             };
 
@@ -132,11 +119,7 @@ namespace Editor
                 alwaysShowVertical: false
             );
 
-<<<<<<< HEAD
             _multiColumnHeader.OnGUI(rect: columnRectPrototype, xScroll: 0.0f);
-=======
-            this._multiColumnHeader.OnGUI(rect: columnRectPrototype, xScroll: 0.0f);
->>>>>>> 92c50e979e2243e1fa6d05930c3a282692178337
 
             if (_testReports == null)
             {

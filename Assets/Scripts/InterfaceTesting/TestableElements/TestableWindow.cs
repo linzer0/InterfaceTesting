@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace InterfaceTesting.TestableElements
+namespace InterfaceTesting
 {
     public class TestableWindow : UIElement
     {
