@@ -1,7 +1,7 @@
 ﻿using InterfaceTesting.TestableElements.Base;
 using UnityEngine.UI;
 
-namespace InterfaceTesting.TestableElements
+namespace InterfaceTesting
 {
     public class TestableButton : Button, ITestable
     {

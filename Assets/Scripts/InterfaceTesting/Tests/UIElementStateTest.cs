@@ -1,7 +1,6 @@
-﻿using InterfaceTesting.Tests;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Assets.Scripts.InterfaceTesting.Tests
+namespace InterfaceTesting
 {
     public class UIElementStateTest : BaseTest
     {

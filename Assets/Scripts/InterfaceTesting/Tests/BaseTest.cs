@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 
-namespace InterfaceTesting.Tests
+namespace InterfaceTesting
 {
     public class BaseTest : MonoBehaviour
     {

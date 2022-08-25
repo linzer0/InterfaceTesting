@@ -1,8 +1,7 @@
-﻿using InterfaceTesting.Tests;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 
-namespace Assets.Scripts.InterfaceTesting.Tests
+namespace InterfaceTesting
 {
     public class TextComponentTest : BaseTest
     {

@@ -1,7 +1,6 @@
 ﻿using System;
-using InterfaceTesting.Tests;
 
-namespace InterfaceTesting.Report
+namespace InterfaceTesting
 {
     [Serializable]
     public struct TestReport

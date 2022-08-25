@@ -1,8 +1,6 @@
-﻿using Assets.Scripts.InterfaceTesting.Tests;
-using InterfaceTesting.TestableElements;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace InterfaceTesting.Tests
+namespace InterfaceTesting
 {
     public class OnButtonClickStateTest : UIElementStateTest
     {

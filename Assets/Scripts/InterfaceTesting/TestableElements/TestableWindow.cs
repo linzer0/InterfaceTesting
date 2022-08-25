@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace InterfaceTesting.TestableElements
+namespace InterfaceTesting
 {
     public class TestableWindow : UIElement
     {
@@ -13,7 +13,6 @@ namespace InterfaceTesting.TestableElements
 
         protected override void Initialize()
         {
-            
         }
 
         public override void Simulate()
@@ -35,7 +34,6 @@ namespace InterfaceTesting.TestableElements
 
         public void Test()
         {
-            
         }
     }
 }

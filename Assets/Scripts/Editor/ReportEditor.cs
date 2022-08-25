@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using InterfaceTesting.Report;
+using InterfaceTesting;
 using UnityEditor;
 using UnityEditor.IMGUI.Controls;
 using UnityEngine;
@@ -37,7 +37,7 @@ namespace Editor
 
         private void Initialize()
         {
-            this._columns = new MultiColumnHeaderState.Column[]
+            _columns = new []
             {
                 new MultiColumnHeaderState.Column()
                 {
@@ -70,11 +70,11 @@ namespace Editor
 
             _multiColumnHeaderState = new MultiColumnHeaderState(columns: this._columns);
 
-            this._multiColumnHeader = new MultiColumnHeader(state: this._multiColumnHeaderState);
+            _multiColumnHeader = new MultiColumnHeader(state: this._multiColumnHeaderState);
 
-            this._multiColumnHeader.visibleColumnsChanged += (multiColumnHeader) => multiColumnHeader.ResizeToFit();
+            _multiColumnHeader.visibleColumnsChanged += (multiColumnHeader) => multiColumnHeader.ResizeToFit();
 
-            this._multiColumnHeader.ResizeToFit();
+            _multiColumnHeader.ResizeToFit();
         }
 
         private readonly Color _lighterColor = Color.white * 0.3f;
@@ -84,17 +84,17 @@ namespace Editor
 
         private void OnGUI()
         {
-            if (this._multiColumnHeader == null)
+            if (_multiColumnHeader == null)
             {
-                this.Initialize();
+                Initialize();
             }
 
             GUILayout.FlexibleSpace();
 
             Rect windowRect = GUILayoutUtility.GetLastRect();
 
-            windowRect.width = this.position.width;
-            windowRect.height = this.position.height;
+            windowRect.width = position.width;
+            windowRect.height = position.height;
 
             float columnHeight = EditorGUIUtility.singleLineHeight;
 
@@ -107,11 +107,11 @@ namespace Editor
 
             Rect viewRect = new Rect(source: windowRect)
             {
-                xMax = this._columns.Sum((column) =>
+                xMax = _columns.Sum((column) =>
                     column.width)
             };
 
-            this._scrollPosition = GUI.BeginScrollView(
+            _scrollPosition = GUI.BeginScrollView(
                 position: positionalRectAreaOfScrollView,
                 scrollPosition: this._scrollPosition,
                 viewRect: viewRect,
@@ -119,7 +119,7 @@ namespace Editor
                 alwaysShowVertical: false
             );
 
-            this._multiColumnHeader.OnGUI(rect: columnRectPrototype, xScroll: 0.0f);
+            _multiColumnHeader.OnGUI(rect: columnRectPrototype, xScroll: 0.0f);
 
             if (_testReports == null)
             {
@@ -134,17 +134,17 @@ namespace Editor
                 rowRect.y += columnHeight * (i + 1);
 
                 if (i % 2 == 0)
-                    EditorGUI.DrawRect(rect: rowRect, color: this._darkerColor);
+                    EditorGUI.DrawRect(rect: rowRect, color: _darkerColor);
                 else
-                    EditorGUI.DrawRect(rect: rowRect, color: this._lighterColor);
+                    EditorGUI.DrawRect(rect: rowRect, color: _lighterColor);
 
                 int columnIndex = 0;
 
-                if (this._multiColumnHeader.IsColumnVisible(columnIndex: columnIndex))
+                if (_multiColumnHeader.IsColumnVisible(columnIndex: columnIndex))
                 {
-                    int visibleColumnIndex = this._multiColumnHeader.GetVisibleColumnIndex(columnIndex: columnIndex);
+                    int visibleColumnIndex = _multiColumnHeader.GetVisibleColumnIndex(columnIndex: columnIndex);
 
-                    Rect columnRect = this._multiColumnHeader.GetColumnRect(visibleColumnIndex: visibleColumnIndex);
+                    Rect columnRect = _multiColumnHeader.GetColumnRect(visibleColumnIndex: visibleColumnIndex);
 
                     columnRect.y = rowRect.y;
 
@@ -154,7 +154,7 @@ namespace Editor
                     };
 
                     EditorGUI.LabelField(
-                        position: this._multiColumnHeader.GetCellRect(visibleColumnIndex: visibleColumnIndex,
+                        position: _multiColumnHeader.GetCellRect(visibleColumnIndex: visibleColumnIndex,
                             columnRect),
                         label: new GUIContent(_testReports[i].Name),
                         style: nameFieldGUIStyle
@@ -163,11 +163,11 @@ namespace Editor
 
                 columnIndex = 1;
 
-                if (this._multiColumnHeader.IsColumnVisible(columnIndex: columnIndex))
+                if (_multiColumnHeader.IsColumnVisible(columnIndex: columnIndex))
                 {
-                    int visibleColumnIndex = this._multiColumnHeader.GetVisibleColumnIndex(columnIndex: columnIndex);
+                    int visibleColumnIndex = _multiColumnHeader.GetVisibleColumnIndex(columnIndex: columnIndex);
 
-                    Rect columnRect = this._multiColumnHeader.GetColumnRect(visibleColumnIndex: visibleColumnIndex);
+                    Rect columnRect = _multiColumnHeader.GetColumnRect(visibleColumnIndex: visibleColumnIndex);
 
                     columnRect.y = rowRect.y;
 
@@ -179,11 +179,11 @@ namespace Editor
 
                 columnIndex = 2;
 
-                if (this._multiColumnHeader.IsColumnVisible(columnIndex: columnIndex))
+                if (_multiColumnHeader.IsColumnVisible(columnIndex: columnIndex))
                 {
-                    int visibleColumnIndex = this._multiColumnHeader.GetVisibleColumnIndex(columnIndex: columnIndex);
+                    int visibleColumnIndex = _multiColumnHeader.GetVisibleColumnIndex(columnIndex: columnIndex);
 
-                    Rect columnRect = this._multiColumnHeader.GetColumnRect(visibleColumnIndex: visibleColumnIndex);
+                    Rect columnRect = _multiColumnHeader.GetColumnRect(visibleColumnIndex: visibleColumnIndex);
 
                     columnRect.y = rowRect.y;
 
@@ -201,7 +201,7 @@ namespace Editor
 
         private void Awake()
         {
-            this.Initialize();
+            Initialize();
         }
 
         private void ShowTest(TestReport testReport)

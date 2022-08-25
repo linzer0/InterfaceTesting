@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace InterfaceTesting.Report
+namespace InterfaceTesting
 {
     public class ReportView : MonoBehaviour
     {
