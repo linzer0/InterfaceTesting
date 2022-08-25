@@ -1,5 +1,4 @@
-﻿using Assets.Scripts.InterfaceTesting.TestableElements;
-using Assets.Scripts.InterfaceTesting.Tests;
+﻿using Assets.Scripts.InterfaceTesting.Tests;
 using InterfaceTesting.TestableElements;
 using UnityEngine;
 

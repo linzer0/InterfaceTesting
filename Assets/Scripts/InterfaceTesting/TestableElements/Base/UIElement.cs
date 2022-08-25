@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Assets.Scripts.InterfaceTesting.TestableElements.Base
+namespace InterfaceTesting.TestableElements.Base
 {
     public abstract class UIElement : MonoBehaviour, ITestable
     {

@@ -84,39 +84,31 @@ namespace Editor
 
         private void OnGUI()
         {
-            // After compilation and some other events data of the window is lost if it's not saved in some kind of container. Usually those containers are ScriptableObject(s).
             if (this._multiColumnHeader == null)
             {
                 this.Initialize();
             }
 
-            // Basically we just draw something. Empty space. Which is `FlexibleSpace` here on top of the window.
-            // We need this for - `GUILayoutUtility.GetLastRect()` because it needs at least 1 thing to be drawn before it.
             GUILayout.FlexibleSpace();
 
-            // Get automatically aligned rect for our multi column header component.
             Rect windowRect = GUILayoutUtility.GetLastRect();
 
-            // Here we are basically assigning the size of window to our newly positioned `windowRect`.
             windowRect.width = this.position.width;
             windowRect.height = this.position.height;
 
             float columnHeight = EditorGUIUtility.singleLineHeight;
 
-            // This is a rect for our multi column table.
             Rect columnRectPrototype = new Rect(source: windowRect)
             {
-                height = columnHeight, // This is basically a height of each column including header.
+                height = columnHeight, 
             };
 
-            // Just enormously large view if you want it to span for the whole window. This is how it works [shrugs in confusion].
             Rect positionalRectAreaOfScrollView = GUILayoutUtility.GetRect(0, float.MaxValue, 0, float.MaxValue);
 
-            // Create a `viewRect` since it should be separate from `rect` to avoid circular dependency.
             Rect viewRect = new Rect(source: windowRect)
             {
                 xMax = this._columns.Sum((column) =>
-                    column.width) // Scroll max on X is basically a sum of width of columns.
+                    column.width)
             };
 
             this._scrollPosition = GUI.BeginScrollView(
@@ -127,11 +119,8 @@ namespace Editor
                 alwaysShowVertical: false
             );
 
-            // Draw header for columns here.
             this._multiColumnHeader.OnGUI(rect: columnRectPrototype, xScroll: 0.0f);
 
-            // For each element that we have in object that we are modifying.
-            //? I don't have an appropriate object here to modify, but this is just an example. In real world case I would probably use ScriptableObject here.
             if (_testReports == null)
             {
                 return;
@@ -139,22 +128,16 @@ namespace Editor
 
             for (int i = 0; i < _testReports.Count; i++)
             {
-                //! We draw each type of field here separately because each column could require a different type of field as seen here.
-                // This can be improved if we want to have a more robust system. Like for example, we could have logic of drawing each field moved to object itself.
-                // Then here we would be able to just iterate through array of these objects and call a draw methods for these fields and use this window for many types of objects.
-                // But example with such a system would be too complicated for gamedev.stackexchange, so I have decided to not overengineer and just use hard coded indices for columns - `columnIndex`.
 
                 Rect rowRect = new Rect(source: columnRectPrototype);
 
                 rowRect.y += columnHeight * (i + 1);
 
-                // Draw a texture before drawing each of the fields for the whole row.
                 if (i % 2 == 0)
                     EditorGUI.DrawRect(rect: rowRect, color: this._darkerColor);
                 else
                     EditorGUI.DrawRect(rect: rowRect, color: this._lighterColor);
 
-                // Name field.
                 int columnIndex = 0;
 
                 if (this._multiColumnHeader.IsColumnVisible(columnIndex: columnIndex))
@@ -163,8 +146,6 @@ namespace Editor
 
                     Rect columnRect = this._multiColumnHeader.GetColumnRect(visibleColumnIndex: visibleColumnIndex);
 
-                    // This here basically is a row height, you can make it any value you like. Or you could calculate the max field height here that your object has and store it somewhere then use it here instead of `EditorGUIUtility.singleLineHeight`.
-                    // We move position of field on `y` by this height to get correct position.
                     columnRect.y = rowRect.y;
 
                     GUIStyle nameFieldGUIStyle = new GUIStyle(GUI.skin.label)
@@ -180,7 +161,6 @@ namespace Editor
                     );
                 }
 
-                // Health slider field.
                 columnIndex = 1;
 
                 if (this._multiColumnHeader.IsColumnVisible(columnIndex: columnIndex))
@@ -197,7 +177,6 @@ namespace Editor
                         _testReports[i].GetDescription());
                 }
 
-                // Skin color field.
                 columnIndex = 2;
 
                 if (this._multiColumnHeader.IsColumnVisible(columnIndex: columnIndex))
@@ -214,9 +193,6 @@ namespace Editor
                         ShowTest(_testReports[i]);
                     }
 
-                    // EditorGUI.LabelField(
-                    // _multiColumnHeader.GetCellRect(visibleColumnIndex: visibleColumnIndex, columnRect),
-                    // _testReports[i].GetTestStatus());
                 }
             }
 
