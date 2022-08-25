@@ -1,8 +1,7 @@
-﻿using InterfaceTesting.Tests;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace Assets.Scripts.InterfaceTesting.Tests
+namespace InterfaceTesting
 {
     public class ImageTest : BaseTest
     {

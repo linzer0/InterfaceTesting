@@ -1,16 +1,13 @@
-﻿using Assets.Scripts.InterfaceTesting.TestableElements;
-using Assets.Scripts.InterfaceTesting.Tests;
-using InterfaceTesting.TestableElements;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace InterfaceTesting.Tests
+namespace InterfaceTesting
 {
     public class OnButtonClickStateTest : UIElementStateTest
     {
         [SerializeField] private TestableButton _testableButton;
 
         private bool _targetStartState;
-        
+
         public override void RunTest()
         {
             _targetStartState = _targetElement.activeSelf;
@@ -27,6 +24,11 @@ namespace InterfaceTesting.Tests
             }
 
             _targetElement.SetActive(_targetStartState);
+        }
+
+        public override string GetDescription()
+        {
+            return $"Target object is {_targetElement.gameObject.name} and Target state is {GetExpectedState()}";
         }
     }
 }

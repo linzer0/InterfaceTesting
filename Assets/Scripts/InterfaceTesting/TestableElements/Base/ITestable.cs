@@ -1,4 +1,4 @@
-namespace Assets.Scripts.InterfaceTesting.TestableElements.Base
+namespace InterfaceTesting.TestableElements.Base
 {
     public interface ITestable
     {

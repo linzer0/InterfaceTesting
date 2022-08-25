@@ -1,10 +1,7 @@
 ﻿using UnityEngine;
 
-namespace Assets.Scripts.InterfaceTesting.Tests
+namespace InterfaceTesting
 {
-    //TODO it's maybe have sense create 
-    // ImageTest
-    // Where we have protected Image reference
     public class ColorComparisonTest : ImageTest
     {
         [SerializeField] private Color _expectedImageColor;
@@ -25,6 +22,12 @@ namespace Assets.Scripts.InterfaceTesting.Tests
         {
             return
                 $"{_targetImage.name} have {_targetImage.color.ToString()}\nExpected {_expectedImageColor.ToString()}";
+        }
+
+        public override string GetDescription()
+        {
+            return
+                $"Target object is {_targetImage.gameObject.name} and Target color is {_expectedImageColor.ToString()}";
         }
     }
 }

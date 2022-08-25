@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
-using InterfaceTesting.Report;
-using InterfaceTesting.Tests;
+using System.Threading;
+using UnityEditor;
 using UnityEngine;
 
 namespace InterfaceTesting
@@ -25,6 +25,19 @@ namespace InterfaceTesting
             _failedTests = new List<BaseTest>();
             _testReports = new List<TestReport>();
             RunTests();
+            TestRunningBar();
+        }
+
+        private void TestRunningBar(float workTime = 2.0f)
+        {
+            var step = 0.1f;
+            for (float t = 0; t < workTime; t += step)
+            {
+                EditorUtility.DisplayProgressBar("Test Running", "Wait for testing to complete...", t / workTime);
+                Thread.Sleep((int) (step * 1000.0f));
+            }
+
+            EditorUtility.ClearProgressBar();
         }
 
 
@@ -62,13 +75,11 @@ namespace InterfaceTesting
         private void TestCompleted()
         {
             CreateTestReport(_index, _currentTest.name, false);
-            // Debug.Log($"{_currentTest.name} completed");
         }
 
         private void TestFailed(string report)
         {
             CreateTestReport(_index, _currentTest.name, true, report);
-            // Debug.Log($"{_currentTest.name} is failed\nReport {report}");
         }
     }
 }

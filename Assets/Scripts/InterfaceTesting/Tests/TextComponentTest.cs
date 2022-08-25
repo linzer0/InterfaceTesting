@@ -1,8 +1,7 @@
-﻿using InterfaceTesting.Tests;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 
-namespace Assets.Scripts.InterfaceTesting.Tests
+namespace InterfaceTesting
 {
     public class TextComponentTest : BaseTest
     {
@@ -24,6 +23,11 @@ namespace Assets.Scripts.InterfaceTesting.Tests
         public override string GetReport()
         {
             return $"{_textComponent.name} have {_textComponent.text}\nExpected {_expectedValue}";
+        }
+
+        public override string GetDescription()
+        {
+            return $"Target object is {_textComponent.name} and Expected value is {_expectedValue}";
         }
     }
 }

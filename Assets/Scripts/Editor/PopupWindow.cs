@@ -1,4 +1,4 @@
-﻿using InterfaceTesting.Report;
+﻿using InterfaceTesting;
 using UnityEditor;
 using UnityEngine;
 

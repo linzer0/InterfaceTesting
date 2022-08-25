@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 
-namespace InterfaceTesting.Tests
+namespace InterfaceTesting
 {
     public class BaseTest : MonoBehaviour
     {
@@ -36,7 +36,7 @@ namespace InterfaceTesting.Tests
 
         public virtual string GetDescription()
         {
-            return "No description";
+            return "Need fill in test description";
         }
     }
 }

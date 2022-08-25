@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Assets.Scripts.InterfaceTesting.Tests
+namespace InterfaceTesting
 {
     public class ImageComparisonTest : ImageTest
     {
@@ -26,6 +26,11 @@ namespace Assets.Scripts.InterfaceTesting.Tests
         private bool SpritesAreEqual(Sprite first, Sprite second)
         {
             return first.Equals(second);
+        }
+
+        public override string GetDescription()
+        {
+            return $"Target object is {_targetImage.name} Expected sprite is {_expectedSprite.name}";
         }
     }
 }

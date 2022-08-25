@@ -1,4 +1,4 @@
-﻿using Assets.Scripts.InterfaceTesting.TestableElements.Base;
+﻿using InterfaceTesting.TestableElements.Base;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -13,7 +13,6 @@ namespace InterfaceTesting
 
         protected override void Initialize()
         {
-            
         }
 
         public override void Simulate()
@@ -35,7 +34,6 @@ namespace InterfaceTesting
 
         public void Test()
         {
-            
         }
     }
 }

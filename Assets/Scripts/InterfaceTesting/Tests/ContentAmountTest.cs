@@ -1,7 +1,6 @@
-﻿using InterfaceTesting.Tests;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Assets.Scripts.InterfaceTesting.Tests
+namespace InterfaceTesting
 {
     public class ContentAmountTest : BaseTest
     {
@@ -28,6 +27,11 @@ namespace Assets.Scripts.InterfaceTesting.Tests
             return
                 $"{_targetContentHolder.name} child amount {_transformChildAmount}" +
                 $"\nExpected {_expectedContentAmount}";
+        }
+
+        public override string GetDescription()
+        {
+            return $"Target object is {_targetContentHolder.name} Expected child amount is {_expectedContentAmount}";
         }
     }
 }
