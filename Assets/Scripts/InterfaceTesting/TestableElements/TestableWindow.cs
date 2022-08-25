@@ -1,8 +1,8 @@
-﻿using Assets.Scripts.InterfaceTesting.TestableElements.Base;
+﻿using InterfaceTesting.TestableElements.Base;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace InterfaceTesting
+namespace InterfaceTesting.TestableElements
 {
     public class TestableWindow : UIElement
     {

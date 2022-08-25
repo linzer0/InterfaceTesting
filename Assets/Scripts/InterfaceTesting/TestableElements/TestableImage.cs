@@ -1,7 +1,7 @@
-﻿using Assets.Scripts.InterfaceTesting.TestableElements.Base;
+﻿using InterfaceTesting.TestableElements.Base;
 using UnityEngine.UI;
 
-namespace Assets.Scripts.InterfaceTesting.TestableElements
+namespace InterfaceTesting.TestableElements
 {
     public class TestableImage : Image, ITestable
     {
